@@ -80,3 +80,22 @@ x in gdb stands for examining the memory. It comes with a number of formatting c
 (gdb) x /4xb &i
 ```
 The flags indicate that I want to examine 4 values formatted as he'x' numerals, one 'b'yte at a time. Note that, on Intel machines, bytes are stored in **Little Endian** order.
+
+### Frames
+
+A running application maintains a call stack that contains information about its functions that have been called. Each item in the stack is a call frame, and each frame contains both the information needed to return to its caller and the information needed to provide the local variables of the function. When our program starts, the call stack has only one frame, that of the function main. Each function call pushes a new frame onto the stack, and each function return removes the frame for that function from the stack. Recursive functions can generate many frames.
+```
+(gdb) info frame <NUM>
+```
+```
+(gdb) info variables /*list all global and static variables */
+```
+```
+(gdb) info locals /* list local variables values of current stack frame */
+```
+```
+(gdb) info args /* list argument values of current stack frame */
+```
+```
+(gdb) info registers
+```
