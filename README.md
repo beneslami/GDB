@@ -34,3 +34,49 @@ $ gdb
 gdb with source file compiled without -g option will now work and will give **No debugging symbols found**.
 
 -q or --quiet : show to output without any additional explanation.
+
+
+The whole purpose of coming to gdb was to pause, observe and proceed. Therefore, gdb provides breakpoints for us. Breakpoints can be used to stop the program run in the middle, at a designated point. Whenever gdb gets to a breakpoint, it halts execution of our program and allows us to examine it. Simplest way of putting a breakpoint is using the function name or a line number.
+```
+(gdb) break <NAME> | <LINE NUM>
+```
+```
+(gdb) info functions
+```
+```
+(gdb) info breakpoints
+```
+```
+(gdb) list
+```
+```
+(gdb) list <LINE, LINE>
+```
+```
+(gdb) next  /* it is used after setting breakpoints */
+```
+```
+(gdb) finish
+```
+```
+(gdb) delete <breakpoint>
+```
+```
+(gdb) continue
+```
+```
+(gdb) step /* it goes inside the function */
+```
+Passing parameters in gdb is done via --arg.
+```
+$ gdb --args <binaryfile> arg1 arg2 arg3
+```
+```
+(gdb) backtrace
+(gdb) frame <NUM>
+```
+x in gdb stands for examining the memory. It comes with a number of formatting commands that provide precise control over how many bytes we would like to examine and how we would like to print them.
+```
+(gdb) x /4xb &i
+```
+The flags indicate that I want to examine 4 values formatted as he'x' numerals, one 'b'yte at a time. Note that, on Intel machines, bytes are stored in **Little Endian** order.
