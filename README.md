@@ -140,3 +140,17 @@ In order to see the assembly code of the running program:
 (gdb) run (simply r)
 (gdb) disassemble main
 ```
+
+### Core_Dump
+
+A "Core Dump" is a snapshot of memory at the instant the program crashed, typically saved in a file called "core". The core contains the memory contents of the process at the point of the seg-fault including its **code segment**, **data segment**, **stack segment** and **heap segment**.
+
+Core_dumps allow a user to save a crash for later or off-site analysis, or comparison with other crashes. In addition, for embedded computers, it may be impractical to support debugging on the computer itself, so analysis of a dump may take place on a different computer.
+```
+main setrlimit
+ulimit -a
+```
+We can also alter the configuration of the core file. Core files and be examined with gdb. It can be read the crash information, and display the backtrace that leads to the crash.
+```
+$ gdb <binary file> <core file>
+```
